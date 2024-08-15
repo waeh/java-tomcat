@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL of your Tomcat server and global vars
-BASE_URL="http://localhost:8080/my-webapp"
+BASE_URL="http://localhost:8080/webapp"
 
 # Cookie file to store session information
 COOKIE_FILE=$(mktemp)

@@ -1,0 +1,58 @@
+networks:
+  net:
+    driver: bridge
+    attachable: true
+
+services:
+  uf1:
+    networks:
+      net:
+        aliases:
+          - uf1
+    image: ${UF_IMAGE:-splunk/universalforwarder:latest}
+    hostname: uf1
+    container_name: uf1
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_STANDALONE_URL=so1
+      - SPLUNK_ADD=udp 1514,monitor /var/log/access_log*
+      - SPLUNK_PASSWORD
+    ports:
+      - 8089
+    volumes:
+      - log-files:/var/log
+
+  so1:
+    networks:
+      net:
+        aliases:
+          - so1
+    image: ${SPLUNK_IMAGE:-splunk/splunk:latest}
+    hostname: so1
+    container_name: so1
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_STANDALONE_URL=so1
+      - SPLUNK_LICENSE_URI=/tmp/license/splunk.lic
+      - SPLUNK_PASSWORD
+    ports:
+      - "8000:8000" 
+      - 8089
+    volumes:
+      - ./license:/tmp/license/
+
+  java:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: app
+    environment:
+    - UMASK=0022
+    ports:
+      - "8080:8080"
+    volumes:
+      - log-files:/usr/local/tomcat/logs
+
+volumes:
+  log-files:
+    driver: local

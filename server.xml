@@ -177,7 +177,8 @@
 			directory="logs"
 			prefix="access_log"
 			suffix=".txt"
-			pattern="{&quot;remoteAddr&quot;:&quot;%h&quot;, &quot;remoteLogName&quot;:&quot;%l&quot;, &quot;remoteUser&quot;:&quot;%u&quot;, &quot;time&quot;:&quot;%t&quot;, &quot;request&quot;:&quot;%r&quot;, &quot;path&quot;:&quot;%U&quot;, &quot;status&quot;:&quot;%s&quot;, &quot;bytesSent&quot;:&quot;%b&quot;, &quot;jsessionId&quot;:&quot;%{JSESSIONID}c&quot;, &quot;requestUri&quot;:&quot;%{REQUESTURI}p&quot;, &quot;host&quot;:&quot;%{HOST}i&quot;, &quot;duration&quot;:&quot;%D&quot;}" />
+			pattern="{&quot;remoteAddr&quot;:&quot;%h&quot;, &quot;remoteLogName&quot;:&quot;%l&quot;, &quot;remoteUser&quot;:&quot;%u&quot;, &quot;time&quot;:&quot;%t&quot;, &quot;request&quot;:&quot;%r&quot;, &quot;path&quot;:&quot;%U&quot;, &quot;status&quot;:&quot;%s&quot;, &quot;bytesSent&quot;:&quot;%b&quot;, &quot;jsessionId&quot;:&quot;%{JSESSIONID}c&quot;, &quot;requestUri&quot;:&quot;%{REQUESTURI}p&quot;, &quot;host&quot;:&quot;%{HOST}i&quot;, &quot;duration&quot;:&quot;%D&quot;}"
+               filePermissions="644" />
       </Host>
     </Engine>
   </Service>
