@@ -1,25 +1,15 @@
 #!/bin/bash
 
 # URL of your Tomcat server and global vars
-BASE_URL="http://localhost:8080/webapp"
-
-# Cookie file to store session information
-COOKIE_FILE=$(mktemp)
+BASE_URL="http://app:8080"
 
 # Function to perform a GET request to a specific endpoint
 function hit_endpoint() {
     local endpoint=$1
     echo "Hitting ${BASE_URL}${endpoint}"
     # Perform the curl request and save cookies
-    response=$(curl -s -c $COOKIE_FILE -b $COOKIE_FILE -w "%{http_code} %{url_effective}\\n" "${BASE_URL}${endpoint}")
+    response=$(curl -s -w "%{http_code} %{url_effective}\\n" "${BASE_URL}${endpoint}")
     echo "$response"
-    # Check for JSESSIONID in the cookie file
-    if grep -q 'JSESSIONID' $COOKIE_FILE; then
-        echo "JSESSIONID found in cookies:"
-        grep 'JSESSIONID' $COOKIE_FILE
-    else
-        echo "JSESSIONID not found"
-    fi
 }
 
 # Initial request to establish session and generate JSESSIONID
@@ -33,19 +23,16 @@ while true; do
 
     # Error endpoint
     hit_endpoint "/error"
-    sleep 5
+    sleep 1
 
     # Fault endpoint
     hit_endpoint "/fault"
-    sleep 10
+    sleep 1
 
     # Nonexistent endpoint
     hit_endpoint "/nonexistent"
-    sleep 20
+    sleep 1
 
     # Adjust sleep duration as needed to simulate different load patterns
     sleep $((RANDOM % 5 + 1))
 done
-
-# Clean up the cookie file
-trap "rm -f $COOKIE_FILE" EXIT

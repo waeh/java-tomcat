@@ -1,0 +1,435 @@
+{
+  "visualizations": {
+    "viz_M5Ys0HcY": {
+      "type": "splunk.column",
+      "dataSources": {
+        "primary": "ds_KLXUyqMI"
+      },
+      "title": "Latency",
+      "description": "Duration of webservice by bucket of 1 second",
+      "options": {
+        "stackMode": "stacked"
+      },
+      "containerOptions": {},
+      "showProgressBar": false,
+      "showLastUpdated": false
+    },
+    "viz_MW3OqVDp": {
+      "type": "splunk.singlevalue",
+      "title": "Traffic",
+      "description": "HTTP request per minute",
+      "dataSources": {
+        "primary": "ds_rw2outPe"
+      },
+      "options": {
+        "majorColor": "> majorValue | rangeValue(majorColorEditorConfig)",
+        "trendColor": "> trendValue | rangeValue(trendColorEditorConfig)",
+        "backgroundColor": "#ffffff",
+        "majorFontSize": 32,
+        "trendFontSize": 15,
+        "trendDisplay": "percent"
+      },
+      "context": {
+        "majorColorEditorConfig": [
+          {
+            "value": "#252214",
+            "to": 10
+          },
+          {
+            "value": "#3D2830",
+            "from": 10,
+            "to": 20
+          },
+          {
+            "value": "#562E4C",
+            "from": 20,
+            "to": 30
+          },
+          {
+            "value": "#6F3468",
+            "from": 30,
+            "to": 40
+          },
+          {
+            "value": "#873A83",
+            "from": 40,
+            "to": 50
+          },
+          {
+            "value": "#A0409F",
+            "from": 50,
+            "to": 60
+          },
+          {
+            "value": "#B846BB",
+            "from": 60
+          }
+        ],
+        "trendColorEditorConfig": [
+          {
+            "value": "#252214",
+            "to": 0
+          },
+          {
+            "value": "#B846BB",
+            "from": 0
+          }
+        ]
+      },
+      "containerOptions": {},
+      "showProgressBar": false,
+      "showLastUpdated": false
+    },
+    "viz_acdDk6qq": {
+      "type": "splunk.singlevalue",
+      "title": "Errors",
+      "description": "HTTP errors per minute",
+      "dataSources": {
+        "primary": "ds_adodP1qi_ds_rw2outPe"
+      },
+      "options": {
+        "majorColor": "> majorValue | rangeValue(majorColorEditorConfig)",
+        "trendColor": "> trendValue | rangeValue(trendColorEditorConfig)",
+        "backgroundColor": "#ffffff",
+        "majorFontSize": 32,
+        "trendFontSize": 15,
+        "trendDisplay": "percent"
+      },
+      "context": {
+        "majorColorEditorConfig": [
+          {
+            "value": "#252214",
+            "to": 10
+          },
+          {
+            "value": "#3D2830",
+            "from": 10,
+            "to": 20
+          },
+          {
+            "value": "#562E4C",
+            "from": 20,
+            "to": 30
+          },
+          {
+            "value": "#873A83",
+            "from": 30,
+            "to": 40
+          },
+          {
+            "value": "#A0409F",
+            "from": 40,
+            "to": 50
+          },
+          {
+            "value": "#B846BB",
+            "from": 50
+          }
+        ],
+        "trendColorEditorConfig": [
+          {
+            "value": "#252214",
+            "to": 0
+          },
+          {
+            "value": "#B846BB",
+            "from": 0
+          }
+        ]
+      },
+      "containerOptions": {},
+      "showProgressBar": false,
+      "showLastUpdated": false
+    },
+    "viz_TJvhuUnO": {
+      "type": "splunk.fillergauge",
+      "dataSources": {
+        "primary": "ds_rw2outPe"
+      },
+      "title": "Utilization",
+      "description": "HTTP requests per minute",
+      "options": {
+        "gaugeColor": "> value | rangeValue(gaugeColorEditorConfig)"
+      },
+      "context": {
+        "gaugeColorEditorConfig": [
+          {
+            "value": "#252214",
+            "to": 10
+          },
+          {
+            "value": "#3D2830",
+            "from": 10,
+            "to": 20
+          },
+          {
+            "value": "#562E4C",
+            "from": 20,
+            "to": 30
+          },
+          {
+            "value": "#873A83",
+            "from": 30,
+            "to": 40
+          },
+          {
+            "value": "#A0409F",
+            "from": 40,
+            "to": 50
+          },
+          {
+            "value": "#B846BB",
+            "from": 50
+          }
+        ]
+      }
+    },
+    "viz_uin9IQff": {
+      "type": "splunk.map",
+      "options": {
+        "center": [
+          27.153248147212523,
+          -80.2803789677784
+        ],
+        "zoom": 2.097039000216053
+      },
+      "dataSources": {
+        "primary": "ds_4teqzaAX"
+      },
+      "containerOptions": {},
+      "showProgressBar": false,
+      "showLastUpdated": false,
+      "title": "Origin web server vistors",
+      "description": "By Client ip origin"
+    },
+    "viz_pkYpb4PY": {
+      "type": "splunk.singlevalueradial",
+      "title": "Unique users",
+      "description": "number of unique userSessionIds",
+      "dataSources": {
+        "primary": "ds_OlAuH54I"
+      },
+      "options": {
+        "trendDisplay": "percent"
+      },
+      "context": {
+        "majorColorEditorConfig": [
+          {
+            "value": "#252214",
+            "to": 10
+          },
+          {
+            "value": "#3D2830",
+            "from": 10,
+            "to": 20
+          },
+          {
+            "value": "#562E4C",
+            "from": 20,
+            "to": 30
+          },
+          {
+            "value": "#873A83",
+            "from": 30,
+            "to": 40
+          },
+          {
+            "value": "#A0409F",
+            "from": 40,
+            "to": 50
+          },
+          {
+            "value": "#B846BB",
+            "from": 50
+          }
+        ],
+        "trendColorEditorConfig": [
+          {
+            "value": "#252214",
+            "to": 0
+          },
+          {
+            "value": "#B846BB",
+            "from": 0
+          }
+        ]
+      },
+      "containerOptions": {},
+      "showProgressBar": false,
+      "showLastUpdated": false
+    }
+  },
+  "dataSources": {
+    "ds_KLXUyqMI": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main host=$dd_lfTai6Py$\n| chart count as requests by duration, status"
+      },
+      "name": "Latency-distribution"
+    },
+    "ds_wIB5xQk7": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main\n| table host\n| dedup host",
+        "queryParameters": {
+          "earliest": "-24h@h",
+          "latest": "now"
+        }
+      },
+      "name": "hosts"
+    },
+    "ds_rw2outPe": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main host=$dd_lfTai6Py$\r\n| timechart span=1m count"
+      },
+      "name": "http-status-count"
+    },
+    "ds_adodP1qi_ds_rw2outPe": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main host=$dd_lfTai6Py$ status>310\r\n| timechart span=1m count"
+      },
+      "name": "http-error-count"
+    },
+    "ds_4teqzaAX": {
+      "type": "ds.search",
+      "options": {
+        "query": "source=\"tutorialdata.zip:*\" sourcetype=access_combined_wcookie \n| iplocation clientip\n| geostats count by Country",
+        "queryParameters": {
+          "earliest": "-7d@h",
+          "latest": "now"
+        }
+      },
+      "name": "clientip-country-origin"
+    },
+    "ds_OlAuH54I": {
+      "type": "ds.search",
+      "options": {
+        "query": "index=main \n| stats dc(userSessionId) as uniqueUsers"
+      },
+      "name": "unique-users"
+    }
+  },
+  "defaults": {
+    "dataSources": {
+      "global": {
+        "options": {
+          "refresh": "1m",
+          "refreshType": "delay"
+        }
+      },
+      "ds.search": {
+        "options": {
+          "queryParameters": {
+            "latest": "$global_time.latest$",
+            "earliest": "$global_time.earliest$"
+          }
+        }
+      }
+    }
+  },
+  "inputs": {
+    "input_global_trp": {
+      "type": "input.timerange",
+      "options": {
+        "token": "global_time",
+        "defaultValue": "-24h@h,now"
+      },
+      "title": "Global Time Range"
+    },
+    "input_iHtsKkxX": {
+      "options": {
+        "items": [
+          {
+            "label": "All",
+            "value": "*"
+          }
+        ],
+        "defaultValue": "*",
+        "token": "dd_lfTai6Py"
+      },
+      "title": "Hosts",
+      "type": "input.dropdown",
+      "dataSources": {
+        "primary": "ds_wIB5xQk7"
+      }
+    }
+  },
+  "layout": {
+    "type": "absolute",
+    "options": {
+      "width": 1440,
+      "height": 960,
+      "display": "auto"
+    },
+    "structure": [
+      {
+        "item": "viz_M5Ys0HcY",
+        "type": "block",
+        "position": {
+          "x": 760,
+          "y": 20,
+          "w": 660,
+          "h": 340
+        }
+      },
+      {
+        "item": "viz_MW3OqVDp",
+        "type": "block",
+        "position": {
+          "x": 760,
+          "y": 380,
+          "w": 200,
+          "h": 200
+        }
+      },
+      {
+        "item": "viz_acdDk6qq",
+        "type": "block",
+        "position": {
+          "x": 980,
+          "y": 380,
+          "w": 190,
+          "h": 200
+        }
+      },
+      {
+        "item": "viz_TJvhuUnO",
+        "type": "block",
+        "position": {
+          "x": 20,
+          "y": 590,
+          "w": 400,
+          "h": 330
+        }
+      },
+      {
+        "item": "viz_uin9IQff",
+        "type": "block",
+        "position": {
+          "x": 20,
+          "y": 20,
+          "w": 720,
+          "h": 560
+        }
+      },
+      {
+        "item": "viz_pkYpb4PY",
+        "type": "block",
+        "position": {
+          "x": 440,
+          "y": 590,
+          "w": 410,
+          "h": 330
+        }
+      }
+    ],
+    "globalInputs": [
+      "input_global_trp",
+      "input_iHtsKkxX"
+    ]
+  },
+  "description": "Dashboard with Golden signals",
+  "title": "Java web app demo"
+}

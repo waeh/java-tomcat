@@ -16,9 +16,10 @@ services:
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_STANDALONE_URL=so1
       - SPLUNK_ADD=udp 1514,monitor /var/log/access_log*
-      - SPLUNK_PASSWORD
+      - SPLUNK_PASSWORD=devsecops
     ports:
       - 8089
+      - 9997
     volumes:
       - log-files:/var/log
 
@@ -34,16 +35,17 @@ services:
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_STANDALONE_URL=so1
       - SPLUNK_LICENSE_URI=/tmp/license/splunk.lic
-      - SPLUNK_PASSWORD
+      - SPLUNK_PASSWORD=devsecops
     ports:
       - "8000:8000" 
       - 8089
+      - 9997
     volumes:
       - ./license:/tmp/license/
 
-  java:
+  web:
     build:
-      dockerfile: Dockerfile
+      dockerfile: webapp/Dockerfile
       context: .
     container_name: app
     environment:
@@ -52,6 +54,12 @@ services:
       - "8080:8080"
     volumes:
       - log-files:/usr/local/tomcat/logs
+
+  loadgen:
+    build:
+      dockerfile: ./loadgen/Dockerfile
+      context: .
+    container_name: bash
 
 volumes:
   log-files:
